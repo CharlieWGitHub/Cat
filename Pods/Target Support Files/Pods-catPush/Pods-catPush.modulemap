@@ -1,0 +1,6 @@
+framework module Pods_catPush {
+  umbrella header "Pods-catPush-umbrella.h"
+
+  export *
+  module * { export * }
+}

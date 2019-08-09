@@ -1,0 +1,6 @@
+framework module Pods_catPushServer {
+  umbrella header "Pods-catPushServer-umbrella.h"
+
+  export *
+  module * { export * }
+}
