@@ -10,7 +10,7 @@ target 'cat' do
   pod 'Masonry'
   pod 'MBProgressHUD'
   pod 'MJRefresh'
-  pod 'SDAutoLayout'
+#  pod 'SDAutoLayout'
   #pod 'SDWebImage'
   # Pods for cat
 

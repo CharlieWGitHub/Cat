@@ -19,7 +19,7 @@
 #endif
 #define JPUSHKEY @"ce6491e8a1be14c7b0a62cb7"
 
-@interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
+@interface AppDelegate () <JPUSHRegisterDelegate, UNUserNotificationCenterDelegate>
 
 @end
 
@@ -30,24 +30,24 @@
     
     
     
-    FLTabBarViewController * main = [[FLTabBarViewController alloc]init];
+    FLTabBarViewController *main = [[FLTabBarViewController alloc] init];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:CatWelcomeIsLaunchDefaultKey] != YES) {
-        NSArray *imgArr = @[@"welcome1", @"welcome2", @"welcome3",@"welcome1"];
-        WelcomeViewController * welcomeVC = [[WelcomeViewController alloc] initWithImageNameArray:imgArr rootViewController:main];
+        NSArray *imgArr = @[ @"welcome1", @"welcome2", @"welcome3", @"welcome1" ];
+        WelcomeViewController *welcomeVC = [[WelcomeViewController alloc] initWithImageNameArray:imgArr rootViewController:main];
         self.window.rootViewController = welcomeVC;
     }else{
         self.window.rootViewController = main;
     }
     [self.window makeKeyAndVisible];
-    
+
     [self replayJPUSHNotification:application launchOption:launchOptions];
     [self replayPushNotification:application];
-//  程序没有起动的时候点通知进来
-    NSDictionary* pushNotificationKey = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-//    [self makePush];
-    NSLog(@"pushNotificationKey--%@",pushNotificationKey);
+    //  程序没有起动的时候点通知进来
+    NSDictionary *pushNotificationKey = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    //    [self makePush];
+    NSLog(@"pushNotificationKey--%@", pushNotificationKey);
     [self makePush:pushNotificationKey];
     return YES;
 }
@@ -59,11 +59,11 @@
 
 #pragma mark 注册极光推送
 - (void)replayJPUSHNotification:(UIApplication *)application launchOption:(NSDictionary*)launchOptions{
-    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    JPUSHRegisterEntity *entity = [[JPUSHRegisterEntity alloc] init];
     if (@available(iOS 12.0, *)) {
-        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
+        entity.types = JPAuthorizationOptionAlert | JPAuthorizationOptionBadge | JPAuthorizationOptionSound | JPAuthorizationOptionProvidesAppNotificationSettings;
     } else {
-        entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+        entity.types = JPAuthorizationOptionAlert | JPAuthorizationOptionBadge | JPAuthorizationOptionSound;
     }
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
     [JPUSHService setupWithOption:launchOptions appKey:JPUSHKEY
@@ -76,27 +76,27 @@
 - (void)replayPushNotification:(UIApplication *)application{
   
      if (@available(iOS 10.0, *)) {
-        // 可以添加自定义 categories
-        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
-        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        center.delegate = self;
-        [center setNotificationCategories:[NSSet setWithObjects:[self createCatrgory], nil]];
+    // 可以添加自定义 categories
+    // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+    // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    [center setNotificationCategories:[NSSet setWithObjects:[self createCatrgory], nil]];
         [center requestAuthorizationWithOptions:UNAuthorizationOptionAlert|UNAuthorizationOptionBadge|UNAuthorizationOptionSound completionHandler:^(BOOL granted, NSError * _Nullable error) {
-            if (granted == YES && !error) {
-                NSLog(@"授权成功");//用户点击允许
+                            if (granted == YES && !error) {
+                                NSLog(@"授权成功"); //用户点击允许
             }else{
                 NSLog(@"授权失败");//用户点击允许
 
-            }
-        }];
+                            }
+                          }];
         
         [[UIApplication sharedApplication] registerForRemoteNotifications];
 
-//获取权限设置，用户点击了统一还是不同意都可以获取
-        [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+    //获取权限设置，用户点击了统一还是不同意都可以获取
+    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings *_Nonnull settings) {
             NSLog(@"=====%@",settings);
-        }];
+    }];
     }
 }
 #pragma mark - 创建通知分类（交互按钮）
@@ -131,16 +131,16 @@
 
     return category;
 }
-
--(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(nonnull UNNotificationResponse *)response withCompletionHandler:(nonnull void (^)(void))completionHandler{
     
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(nonnull UNNotificationResponse *)response withCompletionHandler:(nonnull void (^)(void))completionHandler{
+
     //根据identifer判断按钮类型，如果是textInput则获取输入的文字
     if ([response.actionIdentifier isEqualToString:@"action_input"]) {
         //获取文本响应
         UNTextInputNotificationResponse *textResponse = (UNTextInputNotificationResponse *)response;
         NSLog(@"输入的内容为：%@",textResponse.userText);
-    }
-    
+}
+
     NSLog(@"actionIdentifier----%@",response.actionIdentifier);
     //处理其他事件
     completionHandler();
@@ -184,29 +184,29 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     //Optional
     CCLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
-    
+
 }
 
 // iOS 12 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{
     if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         //从通知界面直接进入应用
-        CCLog(@"here%@",notification.request.content.userInfo);
+        CCLog(@"here%@", notification.request.content.userInfo);
         
     }else{
         //从通知设置界面进入应用
         CCLog(@"here here");
-        CCLog(@"%@",notification.request.content.userInfo);
+        CCLog(@"%@", notification.request.content.userInfo);
 
-    }
+        }
 }
 
 // iOS 10 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
     // Required
-    NSDictionary * userInfo = notification.request.content.userInfo;
-    CCLog(@"iOS 10 Support=%@",userInfo);
-    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+    NSDictionary *userInfo = notification.request.content.userInfo;
+    CCLog(@"iOS 10 Support=%@", userInfo);
+    if ([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
     }
     completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
@@ -215,22 +215,22 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 // iOS 10 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     // Required
-    NSDictionary * userInfo = response.notification.request.content.userInfo;
-    CCLog(@"iOS 10 Support=%@",userInfo);
+    NSDictionary *userInfo = response.notification.request.content.userInfo;
+    CCLog(@"iOS 10 Support=%@", userInfo);
 
-    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+    if ([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
     }
-    completionHandler();  // 系统要求执行这个方法
+    completionHandler(); // 系统要求执行这个方法
 }
 //活跃状态收到通知（未杀死APP）
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     // Required, iOS 7 Support
   
-    CCLog(@"进来了进来了：%@",userInfo);
-    
+    CCLog(@"进来了进来了：%@", userInfo);
+
     [JPUSHService handleRemoteNotification:userInfo];
-    
+
     completionHandler(UIBackgroundFetchResultNewData);
 }
 

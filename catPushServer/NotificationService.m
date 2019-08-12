@@ -10,7 +10,7 @@
 
 #import "JPushNotificationExtensionService.h"
 
-@interface NotificationService ()<UNUserNotificationCenterDelegate>
+@interface NotificationService () <UNUserNotificationCenterDelegate>
 
 @property (nonatomic, strong) void (^contentHandler)(UNNotificationContent *contentToDeliver);
 @property (nonatomic, strong) UNMutableNotificationContent *bestAttemptContent;
@@ -32,52 +32,52 @@
     self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [notificationServer]", self.bestAttemptContent.title];
 //取出来图片
     NSString * attachmentPath = self.bestAttemptContent.userInfo[@"my-attachment"];
-    
+
     //if exist
     if (attachmentPath) {
         //download
         NSURL *fileURL = [NSURL URLWithString:attachmentPath];
         [self downloadAndSave:fileURL handler:^(NSString *localPath) {
-            if (localPath) {
-                UNNotificationAttachment * attachment = [UNNotificationAttachment attachmentWithIdentifier:@"myAttachment" URL:[NSURL fileURLWithPath:localPath] options:nil error:nil];
-                self.bestAttemptContent.attachments = @[attachment];
-            }
-            [self apnsDeliverWith:request];
-        }];
+                        if (localPath) {
+                            UNNotificationAttachment *attachment = [UNNotificationAttachment attachmentWithIdentifier:@"myAttachment" URL:[NSURL fileURLWithPath:localPath] options:nil error:nil];
+                            self.bestAttemptContent.attachments = @[ attachment ];
+                        }
+                        [self apnsDeliverWith:request];
+                      }];
     }else{
         [self apnsDeliverWith:request];
     }
-//    self.contentHandler(self.bestAttemptContent);
+    //    self.contentHandler(self.bestAttemptContent);
 }
 - (void)downloadAndSave:(NSURL *)fileURL handler:(void (^)(NSString *))handler {
-    
-    NSURLSession * session = [NSURLSession sharedSession];
+
+    NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDownloadTask *task = [session downloadTaskWithURL:fileURL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSString *localPath = nil;
-        if (!error) {
-            NSString * localURL = [NSString stringWithFormat:@"%@/%@", NSTemporaryDirectory(),fileURL.lastPathComponent];
-            if ([[NSFileManager defaultManager] moveItemAtPath:location.path toPath:localURL error:nil]) {
-                localPath = localURL;
-            }
-        }
-        handler(localPath);
-    }];
+                                                  NSString *localPath = nil;
+                                                  if (!error) {
+                                                      NSString *localURL = [NSString stringWithFormat:@"%@/%@", NSTemporaryDirectory(), fileURL.lastPathComponent];
+                                                      if ([[NSFileManager defaultManager] moveItemAtPath:location.path toPath:localURL error:nil]) {
+                                                          localPath = localURL;
+                                                      }
+                                                  }
+                                                  handler(localPath);
+                                                }];
     [task resume];
     
 }
 
 - (void)apnsDeliverWith:(UNNotificationRequest *)request {
-    
+
     //please invoke this func on release version
     //[JPushNotificationExtensionService setLogOff];
-    
+
     //service extension sdk
     //upload to calculate delivery rate
     [JPushNotificationExtensionService jpushSetAppkey:@"ce6491e8a1be14c7b0a62cb7"];
     [JPushNotificationExtensionService jpushReceiveNotificationRequest:request with:^ {
-        NSLog(@"apns upload success");
-        self.contentHandler(self.bestAttemptContent);
-    }];
+                                                                    NSLog(@"apns upload success");
+                                                                    self.contentHandler(self.bestAttemptContent);
+                                                                  }];
 }
 
 - (void)serviceExtensionTimeWillExpire {
