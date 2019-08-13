@@ -64,10 +64,7 @@
             //                make.centerX.equalTo(self.view);
             //                make.size.mas_equalTo(CGSizeMake(120, 35));
             //            }];
-
             self.showRootControllerBtn = button;
-            
-            
         }
     }
     //   小点点

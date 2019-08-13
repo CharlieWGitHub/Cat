@@ -4,7 +4,7 @@
 //
 //  Created by 王成龙 on 2019/8/11.
 //  Copyright © 2019 Charlie. All rights reserved.
-//
+//  button 按钮的 图片 跟文字的位置样式
 
 #import <UIKit/UIKit.h>
 

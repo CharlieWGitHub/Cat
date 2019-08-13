@@ -9,10 +9,8 @@
 #import "UIButton+AdaptiveTitleAndImage.h"
 #import <objc/runtime.h>
 
-
 const void *spaceKey = "spaceKey";
 const void *contentAdjustTypeKey = "contentAdjustTypeKey";
-
 
 @implementation UIButton (AdaptiveTitleAndImage)
 

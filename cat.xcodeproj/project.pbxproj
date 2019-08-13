@@ -50,6 +50,14 @@
 		E977C09022FACE73007A13A0 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E977C08F22FACE73007A13A0 /* NotificationViewController.m */; };
 		E977C09322FACE73007A13A0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E977C09122FACE73007A13A0 /* MainInterface.storyboard */; };
 		E977C09722FACE73007A13A0 /* catPush.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E977C08922FACE73007A13A0 /* catPush.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E98E9CB32302467E009F17CB /* UIButton+AdaptiveTitleAndImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E9CB22302467E009F17CB /* UIButton+AdaptiveTitleAndImage.m */; };
+		E98E9CB723024DD0009F17CB /* HTTPRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E9CB623024DD0009F17CB /* HTTPRequestManager.m */; };
+		E98E9CBA23024F45009F17CB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E9CB923024F45009F17CB /* AFHTTPRequestOperation.m */; };
+		E98E9CBD23025706009F17CB /* NetWorkHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E9CBC23025706009F17CB /* NetWorkHeader.m */; };
+		E98E9CC023025A05009F17CB /* UPMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E9CBF23025A05009F17CB /* UPMD5.m */; };
+		E98E9CC323025D3B009F17CB /* HTTPRequestHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E9CC223025D3B009F17CB /* HTTPRequestHandle.m */; };
+		E98E9CC723025FF4009F17CB /* LoginHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E9CC623025FF4009F17CB /* LoginHandle.m */; };
+		E98E9CCB230286C5009F17CB /* SafeCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E98E9CCA230286C5009F17CB /* SafeCollection.m */; };
 		E9D310A122FC1342009BA55E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D310A022FC1342009BA55E /* Images.xcassets */; };
 		E9D310A622FC180E009BA55E /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D310A522FC180E009BA55E /* WelcomeViewController.m */; };
 		E9D310A922FC28CD009BA55E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D310A822FC28CD009BA55E /* MessageViewController.m */; };
@@ -182,6 +190,22 @@
 		E977C09222FACE73007A13A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E977C09422FACE73007A13A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E977C09B22FACE7A007A13A0 /* catPush.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = catPush.entitlements; sourceTree = "<group>"; };
+		E98E9CB12302467D009F17CB /* UIButton+AdaptiveTitleAndImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AdaptiveTitleAndImage.h"; sourceTree = "<group>"; };
+		E98E9CB22302467E009F17CB /* UIButton+AdaptiveTitleAndImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AdaptiveTitleAndImage.m"; sourceTree = "<group>"; };
+		E98E9CB523024DD0009F17CB /* HTTPRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPRequestManager.h; sourceTree = "<group>"; };
+		E98E9CB623024DD0009F17CB /* HTTPRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestManager.m; sourceTree = "<group>"; };
+		E98E9CB823024F45009F17CB /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		E98E9CB923024F45009F17CB /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		E98E9CBB23025706009F17CB /* NetWorkHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkHeader.h; sourceTree = "<group>"; };
+		E98E9CBC23025706009F17CB /* NetWorkHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkHeader.m; sourceTree = "<group>"; };
+		E98E9CBE23025A05009F17CB /* UPMD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPMD5.h; sourceTree = "<group>"; };
+		E98E9CBF23025A05009F17CB /* UPMD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPMD5.m; sourceTree = "<group>"; };
+		E98E9CC123025D3B009F17CB /* HTTPRequestHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPRequestHandle.h; sourceTree = "<group>"; };
+		E98E9CC223025D3B009F17CB /* HTTPRequestHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestHandle.m; sourceTree = "<group>"; };
+		E98E9CC523025FF4009F17CB /* LoginHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginHandle.h; sourceTree = "<group>"; };
+		E98E9CC623025FF4009F17CB /* LoginHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginHandle.m; sourceTree = "<group>"; };
+		E98E9CC9230286C5009F17CB /* SafeCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafeCollection.h; sourceTree = "<group>"; };
+		E98E9CCA230286C5009F17CB /* SafeCollection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SafeCollection.m; sourceTree = "<group>"; };
 		E9D310A022FC1342009BA55E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9D310A422FC180E009BA55E /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		E9D310A522FC180E009BA55E /* WelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
@@ -308,9 +332,11 @@
 		E977BFF922FA6598007A13A0 /* cat */ = {
 			isa = PBXGroup;
 			children = (
-				E9D310BA22FD562E009BA55E /* Others */,
-				E9D310A322FC17F8009BA55E /* Welcome */,
-				E9D310A222FC1473009BA55E /* Advertisement */,
+				E98E9CC8230261D0009F17CB /* Controls(控件) */,
+				E98E9CB4230246B9009F17CB /* Net */,
+				E9D310BA22FD562E009BA55E /* Safe */,
+				E9D310A322FC17F8009BA55E /* Welcome(欢迎页) */,
+				E9D310A222FC1473009BA55E /* Advertisement(闪屏) */,
 				E977C02C22FA665E007A13A0 /* Lib-noidfa */,
 				E977C08122FAC1F4007A13A0 /* Category */,
 				E977C07622FABF1A007A13A0 /* VC */,
@@ -423,6 +449,7 @@
 		E977C07622FABF1A007A13A0 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				E98E9CC423025FCF009F17CB /* 登录 */,
 				E9D310B122FD439B009BA55E /* 个人中心 */,
 				E9D310B022FD4383009BA55E /* 商城 */,
 				E9D310AF22FD4380009BA55E /* 发布 */,
@@ -453,20 +480,57 @@
 			path = catPush;
 			sourceTree = "<group>";
 		};
-		E9D310A222FC1473009BA55E /* Advertisement */ = {
+		E98E9CB4230246B9009F17CB /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				E98E9CB523024DD0009F17CB /* HTTPRequestManager.h */,
+				E98E9CB623024DD0009F17CB /* HTTPRequestManager.m */,
+				E98E9CB823024F45009F17CB /* AFHTTPRequestOperation.h */,
+				E98E9CB923024F45009F17CB /* AFHTTPRequestOperation.m */,
+				E98E9CBB23025706009F17CB /* NetWorkHeader.h */,
+				E98E9CBC23025706009F17CB /* NetWorkHeader.m */,
+				E98E9CBE23025A05009F17CB /* UPMD5.h */,
+				E98E9CBF23025A05009F17CB /* UPMD5.m */,
+				E98E9CC123025D3B009F17CB /* HTTPRequestHandle.h */,
+				E98E9CC223025D3B009F17CB /* HTTPRequestHandle.m */,
+			);
+			path = Net;
+			sourceTree = "<group>";
+		};
+		E98E9CC423025FCF009F17CB /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				E98E9CC523025FF4009F17CB /* LoginHandle.h */,
+				E98E9CC623025FF4009F17CB /* LoginHandle.m */,
+			);
+			path = "登录";
+			sourceTree = "<group>";
+		};
+		E98E9CC8230261D0009F17CB /* Controls(控件) */ = {
+			isa = PBXGroup;
+			children = (
+				E98E9CB12302467D009F17CB /* UIButton+AdaptiveTitleAndImage.h */,
+				E98E9CB22302467E009F17CB /* UIButton+AdaptiveTitleAndImage.m */,
+				E9D310BB22FD5651009BA55E /* TabbarItemButton.h */,
+				E9D310BC22FD5651009BA55E /* TabbarItemButton.m */,
+			);
+			path = "Controls(控件)";
+			sourceTree = "<group>";
+		};
+		E9D310A222FC1473009BA55E /* Advertisement(闪屏) */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Advertisement;
+			path = "Advertisement(闪屏)";
 			sourceTree = "<group>";
 		};
-		E9D310A322FC17F8009BA55E /* Welcome */ = {
+		E9D310A322FC17F8009BA55E /* Welcome(欢迎页) */ = {
 			isa = PBXGroup;
 			children = (
 				E9D310A422FC180E009BA55E /* WelcomeViewController.h */,
 				E9D310A522FC180E009BA55E /* WelcomeViewController.m */,
 			);
-			path = Welcome;
+			path = "Welcome(欢迎页)";
 			sourceTree = "<group>";
 		};
 		E9D310AD22FD4378009BA55E /* 首页 */ = {
@@ -518,13 +582,13 @@
 			path = "个人中心";
 			sourceTree = "<group>";
 		};
-		E9D310BA22FD562E009BA55E /* Others */ = {
+		E9D310BA22FD562E009BA55E /* Safe */ = {
 			isa = PBXGroup;
 			children = (
-				E9D310BB22FD5651009BA55E /* TabbarItemButton.h */,
-				E9D310BC22FD5651009BA55E /* TabbarItemButton.m */,
+				E98E9CC9230286C5009F17CB /* SafeCollection.h */,
+				E98E9CCA230286C5009F17CB /* SafeCollection.m */,
 			);
-			path = Others;
+			path = Safe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -872,23 +936,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E98E9CB723024DD0009F17CB /* HTTPRequestManager.m in Sources */,
 				E977C07322FABE69007A13A0 /* FLNavigationViewController.m in Sources */,
+				E98E9CBD23025706009F17CB /* NetWorkHeader.m in Sources */,
 				E977BFFF22FA6598007A13A0 /* ViewController.m in Sources */,
 				E977C07522FABE69007A13A0 /* FLTabBarView.m in Sources */,
 				E977C00A22FA6599007A13A0 /* main.m in Sources */,
 				E9D310BD22FD5651009BA55E /* TabbarItemButton.m in Sources */,
 				E9D310C022FD6834009BA55E /* PublishPopView.m in Sources */,
+				E98E9CB32302467E009F17CB /* UIButton+AdaptiveTitleAndImage.m in Sources */,
 				E977C07422FABE69007A13A0 /* FLTabBarViewController.m in Sources */,
 				E9D310B822FD4F06009BA55E /* AboutUsViewController.m in Sources */,
 				E9D310B422FD43EE009BA55E /* BaseViewController.m in Sources */,
 				E977C07F22FABF56007A13A0 /* SettingViewController.m in Sources */,
+				E98E9CBA23024F45009F17CB /* AFHTTPRequestOperation.m in Sources */,
 				E9D310A922FC28CD009BA55E /* MessageViewController.m in Sources */,
 				E9D310A622FC180E009BA55E /* WelcomeViewController.m in Sources */,
+				E98E9CC323025D3B009F17CB /* HTTPRequestHandle.m in Sources */,
 				E977BFFC22FA6598007A13A0 /* AppDelegate.m in Sources */,
+				E98E9CC023025A05009F17CB /* UPMD5.m in Sources */,
 				E977C08422FAC20E007A13A0 /* UIColor+Extension.m in Sources */,
 				E9D310AC22FC28E8009BA55E /* ShopViewController.m in Sources */,
+				E98E9CC723025FF4009F17CB /* LoginHandle.m in Sources */,
 				E977C07922FABF39007A13A0 /* LiveViewController.m in Sources */,
 				E977C07C22FABF45007A13A0 /* HomeViewController.m in Sources */,
+				E98E9CCB230286C5009F17CB /* SafeCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
