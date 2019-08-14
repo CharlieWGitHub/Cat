@@ -17,16 +17,16 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)postRequestWithUrl:(NSString *)url
                    headers:(NSDictionary *)header
                       body:(id)body
-               onOperation:(void (^)(AFHTTPRequestOperation * onOperation))onOperation
-                completion:(void(^)(NSDictionary *responseDic))completion
-                     error:(void(^)(NSError * connectError,long responseStatusCode))onError;
+               onOperation:(void (^)(AFHTTPRequestOperation *onOperation))onOperation
+                completion:(void (^)(NSDictionary *responseDic))completion
+                     error:(void (^)(NSError *connectError, long responseStatusCode))onError;
 
 + (void)getRequestWithUrl:(NSString *)url
-                  headers:(NSDictionary*)header
+                  headers:(NSDictionary *)header
                parameters:(id)parmeters
-              onOperation:(void(^)(AFHTTPRequestOperation*onOperation))onOperation
-               completion:(void(^)(NSDictionary*responseDic))completion
-                    error:(void(^)(NSError * connectError,long responseStatusCode))onError;
+              onOperation:(void (^)(AFHTTPRequestOperation *onOperation))onOperation
+               completion:(void (^)(NSDictionary *responseDic))completion
+                    error:(void (^)(NSError *connectError, long responseStatusCode))onError;
 
 + (void)postDataRequestWithUrl:(NSString *)url
                        headers:(NSDictionary *)header
@@ -39,23 +39,23 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  上传方法
 
- @param url <#url description#>
- @param header <#header description#>
- @param parmeter <#parmeter description#>
- @param dataArray <#dataArray description#>
- @param datatype <#datatype description#>
- @param onOperation <#onOperation description#>
- @param completion <#completion description#>
- @param onError <#onError description#>
+ @param url 上传地址
+ @param header 头
+ @param parmeter 参数
+ @param dataArray 需要上传的数据流
+ @param datatype 上传类型 image
+ @param onOperation opreation
+ @param completion 成功回调
+ @param onError 失败回调
  */
 + (void)uploadDataRequestWithUrl:(NSString *)url
-                         headers:(NSDictionary*)header
+                         headers:(NSDictionary *)header
                        parmeters:(id)parmeter
                        dataArray:(NSArray *)dataArray
-                        dataType:(NSString *)datatype
-                     onOperation:(void(^)(AFHTTPRequestOperation*onOperation))onOperation
-                completion:(void(^)(NSDictionary*responseDic))completion
-                           error:(void(^)(NSError * connectError,long responseStatusCode))onError;;
+                     onOperation:(void (^)(AFHTTPRequestOperation *onOperation))onOperation
+                      completion:(void (^)(NSDictionary *responseDic))completion
+                           error:(void (^)(NSError *connectError, long responseStatusCode))onError;
+;
 
 @end
 
