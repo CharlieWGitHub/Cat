@@ -8,7 +8,7 @@ target 'cat' do
   pod 'AFNetworking'
   pod 'MJExtension'
   pod 'Masonry'
-  pod 'MBProgressHUD'
+  pod 'SVProgressHUD'
   pod 'MJRefresh'
 #  pod 'SDAutoLayout'
   #pod 'SDWebImage'

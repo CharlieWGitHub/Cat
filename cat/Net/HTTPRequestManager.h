@@ -36,14 +36,14 @@ NS_ASSUME_NONNULL_BEGIN
                     completion:(void (^)(NSDictionary *responseDic))completion
                          error:(void (^)(NSError *connectError, long responseStatusCode))onError;
 
+
 /**
  上传方法
 
  @param url 上传地址
  @param header 头
  @param parmeter 参数
- @param dataArray 需要上传的数据流
- @param datatype 上传类型 image
+ @param dataArray 需要上传的数据
  @param onOperation opreation
  @param completion 成功回调
  @param onError 失败回调
