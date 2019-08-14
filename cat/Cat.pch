@@ -10,7 +10,8 @@
 #define Cat_pch
 #import "UIColor+Extension.h"
 #import <Masonry/Masonry.h>
-
+#import "BaseViewController.h"
+#import <SVProgressHUD.h>
 
 //获取屏幕 宽度、高度、
 #define lSCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)

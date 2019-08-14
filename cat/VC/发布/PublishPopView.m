@@ -142,11 +142,15 @@ static NSTimeInterval kAnimationDuration = 0.3;
 
 #pragma mark - event response
 - (void)selectClick:(TabbarItemButton *)button {
+   
     [UIView animateWithDuration:0.25 animations:^{
         self.alpha = 0;
-    } completion:^(BOOL finished) {
         [self removeFromSuperview];
+
+    } completion:^(BOOL finished) {
+  
     }];
+   
     if (self.selectBlock) {
         self.selectBlock(button.tag - 1000);
     }

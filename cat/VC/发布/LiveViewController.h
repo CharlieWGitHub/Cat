@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LiveViewController : UIViewController
+@interface LiveViewController : UIImagePickerController
+
+- (void)cSetSourceType;
 
 @end
 
