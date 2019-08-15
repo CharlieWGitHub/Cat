@@ -66,6 +66,8 @@
 		E9D310B822FD4F06009BA55E /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D310B722FD4F06009BA55E /* AboutUsViewController.m */; };
 		E9D310BD22FD5651009BA55E /* TabbarItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D310BC22FD5651009BA55E /* TabbarItemButton.m */; };
 		E9D310C022FD6834009BA55E /* PublishPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D310BF22FD6834009BA55E /* PublishPopView.m */; };
+		E9ECB7A12303DEF300DD8F42 /* NSString+HASH.m in Sources */ = {isa = PBXBuildFile; fileRef = E9ECB7A02303DEF300DD8F42 /* NSString+HASH.m */; };
+		E9ECB7A5230405A300DD8F42 /* SafeInspactionClasss.m in Sources */ = {isa = PBXBuildFile; fileRef = E9ECB7A4230405A300DD8F42 /* SafeInspactionClasss.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +223,10 @@
 		E9D310BC22FD5651009BA55E /* TabbarItemButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabbarItemButton.m; sourceTree = "<group>"; };
 		E9D310BE22FD6834009BA55E /* PublishPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublishPopView.h; sourceTree = "<group>"; };
 		E9D310BF22FD6834009BA55E /* PublishPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublishPopView.m; sourceTree = "<group>"; };
+		E9ECB79F2303DEF300DD8F42 /* NSString+HASH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HASH.h"; sourceTree = "<group>"; };
+		E9ECB7A02303DEF300DD8F42 /* NSString+HASH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HASH.m"; sourceTree = "<group>"; };
+		E9ECB7A3230405A300DD8F42 /* SafeInspactionClasss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafeInspactionClasss.h; sourceTree = "<group>"; };
+		E9ECB7A4230405A300DD8F42 /* SafeInspactionClasss.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SafeInspactionClasss.m; sourceTree = "<group>"; };
 		EDF6A0AB98A0D06D63EA3EDC /* Pods_catTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_catTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -587,6 +593,10 @@
 			children = (
 				E98E9CC9230286C5009F17CB /* SafeCollection.h */,
 				E98E9CCA230286C5009F17CB /* SafeCollection.m */,
+				E9ECB79F2303DEF300DD8F42 /* NSString+HASH.h */,
+				E9ECB7A02303DEF300DD8F42 /* NSString+HASH.m */,
+				E9ECB7A3230405A300DD8F42 /* SafeInspactionClasss.h */,
+				E9ECB7A4230405A300DD8F42 /* SafeInspactionClasss.m */,
 			);
 			path = Safe;
 			sourceTree = "<group>";
@@ -947,6 +957,7 @@
 				E98E9CB32302467E009F17CB /* UIButton+AdaptiveTitleAndImage.m in Sources */,
 				E977C07422FABE69007A13A0 /* FLTabBarViewController.m in Sources */,
 				E9D310B822FD4F06009BA55E /* AboutUsViewController.m in Sources */,
+				E9ECB7A12303DEF300DD8F42 /* NSString+HASH.m in Sources */,
 				E9D310B422FD43EE009BA55E /* BaseViewController.m in Sources */,
 				E977C07F22FABF56007A13A0 /* SettingViewController.m in Sources */,
 				E98E9CBA23024F45009F17CB /* AFHTTPRequestOperation.m in Sources */,
@@ -955,6 +966,7 @@
 				E98E9CC323025D3B009F17CB /* HTTPRequestHandle.m in Sources */,
 				E977BFFC22FA6598007A13A0 /* AppDelegate.m in Sources */,
 				E98E9CC023025A05009F17CB /* UPMD5.m in Sources */,
+				E9ECB7A5230405A300DD8F42 /* SafeInspactionClasss.m in Sources */,
 				E977C08422FAC20E007A13A0 /* UIColor+Extension.m in Sources */,
 				E9D310AC22FC28E8009BA55E /* ShopViewController.m in Sources */,
 				E98E9CC723025FF4009F17CB /* LoginHandle.m in Sources */,
