@@ -8,11 +8,15 @@
 
 #ifndef Cat_pch
 #define Cat_pch
+
+#ifdef __OBJC__
+
 #import "UIColor+Extension.h"
 #import <Masonry/Masonry.h>
 #import "BaseViewController.h"
 #import <SVProgressHUD.h>
 
+#endif
 //获取屏幕 宽度、高度、
 #define lSCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define lSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)

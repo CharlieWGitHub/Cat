@@ -17,6 +17,7 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.0.17)
   - MJRefresh (3.2.0)
+  - OpenSSL-for-iOS (1.0.2.d.1)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -24,6 +25,7 @@ DEPENDENCIES:
   - Masonry
   - MJExtension
   - MJRefresh
+  - OpenSSL-for-iOS (~> 1.0.2.d.1)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -32,6 +34,7 @@ SPEC REPOS:
     - Masonry
     - MJExtension
     - MJRefresh
+    - OpenSSL-for-iOS
     - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -39,8 +42,9 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  OpenSSL-for-iOS: d7a30add88a1969b052135adbe48452af231ed32
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: aa452865c1568c38f7dda085f85be4fc00b66464
+PODFILE CHECKSUM: 88c624657858ed3036d4bef67eb5e5a6eb470a49
 
 COCOAPODS: 1.7.0
