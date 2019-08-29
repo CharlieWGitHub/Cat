@@ -947,6 +947,8 @@ int GM_SM2Sign(unsigned char * signedData, unsigned long * pulSigLen,
     mp_init_set(&mp_rand_k, 1);
 #ifdef _DEBUG
     unsigned char rand_k[] = "6CB28D99385C175C94F94E934817663FC176D925DD72B727260DBAAE1FB2F96F";
+//    6CB28D99 385C175C 94F94E9 34817663 FC176D92 5DD72B72 7260DBAA E1FB2F96F
+//    A20EAF98 4D45187A 1515A08
 #endif
 	//////////////////////////////////////////////////////////////////////////
 

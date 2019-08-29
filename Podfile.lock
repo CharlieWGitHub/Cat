@@ -18,6 +18,9 @@ PODS:
   - MJExtension (3.0.17)
   - MJRefresh (3.2.0)
   - OpenSSL-for-iOS (1.0.2.d.1)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -26,6 +29,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - OpenSSL-for-iOS (~> 1.0.2.d.1)
+  - SDWebImage
   - SVProgressHUD
 
 SPEC REPOS:
@@ -35,6 +39,7 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - OpenSSL-for-iOS
+    - SDWebImage
     - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -43,8 +48,9 @@ SPEC CHECKSUMS:
   MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   OpenSSL-for-iOS: d7a30add88a1969b052135adbe48452af231ed32
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 88c624657858ed3036d4bef67eb5e5a6eb470a49
+PODFILE CHECKSUM: d57c85a894ba859015e4bb01140c11fee570c835
 
 COCOAPODS: 1.7.0

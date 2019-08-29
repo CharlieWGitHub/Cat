@@ -11,7 +11,7 @@ target 'cat' do
   pod 'SVProgressHUD'
   pod 'MJRefresh'
 #  pod 'SDAutoLayout'
-  #pod 'SDWebImage'
+  pod 'SDWebImage'
   # Pods for cat
 pod 'OpenSSL-for-iOS', '~> 1.0.2.d.1'
 

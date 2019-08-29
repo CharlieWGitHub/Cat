@@ -1,50 +1,37 @@
+
 //
-//  HomeViewController.m
+//  Test.m
 //  cat
 //
-//  Created by 王成龙 on 2019/8/7.
+//  Created by 王成龙 on 2019/8/28.
 //  Copyright © 2019 Charlie. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "Test.h"
 #import "SafeInspactionClasss.h"
 #import "NSString+HASH.h"
 #import "RSAEncryptor.h"
 #import "NSString+Encode.h"
 #import "PBGMService.h"
 
-@interface HomeViewController ()
-
-@end
-
-@implementation HomeViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"首页";
-//    [self method];
-//    [self hashMethod];
-    [self sm];
-}
-
+@implementation Test
 //GCD 信号量的使用
 /**
-这个方法会使信号量加一
+ 这个方法会使信号量加一
  dispatch_semaphore_signal
-这个方法会使信号量减一
+ 这个方法会使信号量减一
  dispatch_semaphore_wait
  当信号量是0时候 第二个方法会阻塞，不会向下执行，知道信号量不为0
  */
 - (void)method{
-
+    
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         for (int i = 0; i < 3; i ++) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 NSLog(@"完成任务——%d",i);
-//              延迟 4 秒
+                //              延迟 4 秒
                 sleep(4);
                 dispatch_semaphore_signal(semaphore);
                 NSLog(@"当前线程：%@",[NSThread currentThread]);
@@ -54,8 +41,22 @@
         NSLog(@"任务全部执行完成");
     });
 }
+- (void)testsm2{
+    
+    NSString *priviteKey = @"128B2FA8BD433C6C068C8D803DFF79792A519A55171B1B650C23661D15897263";
+    NSString * sm3HashString = @"message digest";
+    //  签名、验证签名
+    NSString *uid = @"ALICE123@YAHOO.COM";
+    NSString *signedString = [[PBGMService shared] sm2_signPlainString:sm3HashString withUID:uid withPrivateKey:priviteKey];
+    NSLog(@"signed string:%@ \n 长度=%lu", signedString,(unsigned long)signedString.length);
+    NSLog(@"验证：签名是否是正确");
+    
+    NSString * pubkey = @"0AE4C7798AA0F119471BEE11825BE46202BB79E2A5844495E97C04FF4DF2548A7C0240F88F1CD4E16352A73C17B7F16F07353E53A176D684A9FE0C6BB798E857";
+    BOOL isSc = [[PBGMService shared]sm2_verifyWithPlainString:sm3HashString withSigned:signedString withUID:uid withPublicKey:pubkey];
+    NSLog(@"验证：%@",isSc?@"YES":@"NO");
+}
 
-- (void)hashMethod{
+- (void)hashMethodAndRSA{
     
     NSString * normalString = @"123456789abcdefghijklmnopqrstuvwxyz";
     NSString * publickKey = @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDTbZ6cNH9PgdF60aQKveLz3FTalyzHQwbp601y77SzmGHX3F5NoVUZbdK7UMdoCLK4FBziTewYD9DWvAErXZo9BFuI96bAop8wfl1VkZyyHTcznxNJFGSQd/B70/ExMgMBpEwkAAdyUqIjIdVGh1FQK/4acwS39YXwbS+IlHsPSQIDAQAB";
@@ -87,20 +88,4 @@
     
 }
 
-- (void)sm{
-    
-    NSString *priviteKey = @"128B2FA8BD433C6C068C8D803DFF79792A519A55171B1B650C23661D15897263";
-    NSString * sm3HashString = @"message digest";
-    //  签名、验证签名
-    NSString *uid = @"ALICE123@YAHOO.COM";
-    NSString *signedString = [[PBGMService shared] sm2_signPlainString:sm3HashString withUID:uid withPrivateKey:priviteKey];
-    NSLog(@"signed string:%@ \n 长度=%lu", signedString,(unsigned long)signedString.length);
-    NSLog(@"验证：签名是否是正确");
-    
-    //    NSString *uid2 = @"414C494345313233405941484F4F2E434F4D";
-    NSString * pubkey = @"0AE4C7798AA0F119471BEE11825BE46202BB79E2A5844495E97C04FF4DF2548A7C0240F88F1CD4E16352A73C17B7F16F07353E53A176D684A9FE0C6BB798E857";
-    BOOL isSc = [[PBGMService shared]sm2_verifyWithPlainString:sm3HashString withSigned:signedString withUID:uid withPublicKey:pubkey];
-    NSLog(@"验证：%@",isSc?@"YES":@"NO");
-    
-}
 @end
