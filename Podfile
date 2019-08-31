@@ -10,8 +10,10 @@ target 'cat' do
   pod 'Masonry'
   pod 'SVProgressHUD'
   pod 'MJRefresh'
-#  pod 'SDAutoLayout'
+
   pod 'SDWebImage'
+  pod 'SDCycleScrollView','~> 1.64'
+
   # Pods for cat
 pod 'OpenSSL-for-iOS', '~> 1.0.2.d.1'
 

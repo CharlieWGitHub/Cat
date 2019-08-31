@@ -68,6 +68,7 @@
 		E9AB30902317B2B200BEFAB5 /* HW3DBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AB308D2317B2B200BEFAB5 /* HW3DBannerView.m */; };
 		E9AB30912317B2B200BEFAB5 /* UIView+Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AB308E2317B2B200BEFAB5 /* UIView+Banner.m */; };
 		E9AB30962317CA3D00BEFAB5 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AB30952317CA3D00BEFAB5 /* MessageCell.m */; };
+		E9AB3099231909B100BEFAB5 /* RecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E9AB3098231909B100BEFAB5 /* RecommendTableViewCell.m */; };
 		E9D310A122FC1342009BA55E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D310A022FC1342009BA55E /* Images.xcassets */; };
 		E9D310A622FC180E009BA55E /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D310A522FC180E009BA55E /* WelcomeViewController.m */; };
 		E9D310A922FC28CD009BA55E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D310A822FC28CD009BA55E /* MessageViewController.m */; };
@@ -368,6 +369,8 @@
 		E9AB308F2317B2B200BEFAB5 /* HW3DBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HW3DBannerView.h; sourceTree = "<group>"; };
 		E9AB30942317CA3D00BEFAB5 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		E9AB30952317CA3D00BEFAB5 /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		E9AB3097231909B100BEFAB5 /* RecommendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendTableViewCell.h; sourceTree = "<group>"; };
+		E9AB3098231909B100BEFAB5 /* RecommendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendTableViewCell.m; sourceTree = "<group>"; };
 		E9D310A022FC1342009BA55E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9D310A422FC180E009BA55E /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		E9D310A522FC180E009BA55E /* WelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
@@ -890,6 +893,8 @@
 			children = (
 				E9AB30942317CA3D00BEFAB5 /* MessageCell.h */,
 				E9AB30952317CA3D00BEFAB5 /* MessageCell.m */,
+				E9AB3097231909B100BEFAB5 /* RecommendTableViewCell.h */,
+				E9AB3098231909B100BEFAB5 /* RecommendTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1588,6 +1593,7 @@
 				E9AB307923165B3200BEFAB5 /* UIView+frame.m in Sources */,
 				E9F33902230A9A660080847D /* sm3.c in Sources */,
 				E9F33960230A9A660080847D /* bn_mp_clear.c in Sources */,
+				E9AB3099231909B100BEFAB5 /* RecommendTableViewCell.m in Sources */,
 				E9F33972230A9A660080847D /* bn_mp_rand.c in Sources */,
 				E9F33948230A9A660080847D /* bn_mp_dr_setup.c in Sources */,
 				E9F3391B230A9A660080847D /* bn_mp_cmp.c in Sources */,
