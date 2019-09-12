@@ -8,9 +8,12 @@
 
 #import "SettingViewController.h"
 #import "AboutUsViewController.h"
+#import "GestureLockView.h"
 
-@interface SettingViewController ()
+@interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,strong)UITableView * personTable;
+@property(nonatomic,strong) NSArray * dataArr;
 @end
 
 @implementation SettingViewController
@@ -19,13 +22,57 @@
     [super viewDidLoad];
     self.navigationItem.title = @"个人中心";
     
+    self.dataArr = @[@"我的订单",@"我的收藏",@"我的评价",@"消息中心",@"设置"];
+    
+    [self.view addSubview:self.personTable];
+    [self.personTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(0 , 0, 15, 0));
+
+    }];
     
     // Do any additional setup after loading the view.
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    AboutUsViewController * about = [[AboutUsViewController alloc]init];
-    about.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:about animated:YES];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataArr.count;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * iden = @"identif";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:iden];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:iden];
+    }
+
+    cell.textLabel.text = self.dataArr[indexPath.row];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    if (indexPath.row==0) {
+        GestureLockView * gestures = [[GestureLockView alloc]init];
+        gestures.hidesBottomBarWhenPushed = YES;
+        gestures.gestureType = 0;
+        [self.navigationController pushViewController:gestures animated:YES];
+    }else if (indexPath.row ==1){
+        AboutUsViewController * about = [[AboutUsViewController alloc]init];
+        about.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:about animated:YES];
+    }
+  
+    
+}
+
+
+
+#pragma mark layz
+-(UITableView *)personTable{
+    if (!_personTable) {
+        _personTable = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _personTable.delegate = self;
+        _personTable.dataSource = self;
+        
+    }
+    return _personTable;
 }
 /*
 #pragma mark - Navigation

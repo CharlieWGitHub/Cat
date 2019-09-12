@@ -11,6 +11,8 @@
 #import "JPUSHService.h"
 #import "FLTabBarViewController.h"
 #import "WelcomeViewController.h"
+#import "GestureLockView.h"
+#import "KeychainManager.h"
 
 // iOS10 注册 APNs 所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
@@ -28,17 +30,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    
     FLTabBarViewController *main = [[FLTabBarViewController alloc] init];
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:CatWelcomeIsLaunchDefaultKey] != YES) {
         NSArray *imgArr = @[ @"welcome1", @"welcome2", @"welcome3", @"welcome1" ];
         WelcomeViewController *welcomeVC = [[WelcomeViewController alloc] initWithImageNameArray:imgArr rootViewController:main];
         self.window.rootViewController = welcomeVC;
+        
     }else{
-        self.window.rootViewController = main;
+        NSString * passStr = [KeychainManager keyChainReadData:@"pass"];//      存在
+        if (passStr.length>0) {
+            GestureLockView * gesture = [[GestureLockView alloc]init];
+            gesture.gestureType = 1;
+            self.window.rootViewController = gesture;
+        }else{
+//      不存在
+         self.window.rootViewController = main;
+        }
+        
+        
     }
     [self.window makeKeyAndVisible];
 
