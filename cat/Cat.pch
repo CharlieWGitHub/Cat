@@ -8,28 +8,36 @@
 
 #ifndef Cat_pch
 #define Cat_pch
+
+#ifdef __OBJC__
+
 #import "UIColor+Extension.h"
 #import <Masonry/Masonry.h>
 #import "BaseViewController.h"
 #import <SVProgressHUD.h>
 
+#endif
 //获取屏幕 宽度、高度、
 #define lSCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define lSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define kWScale (lSCREEN_WIDTH / 375.0)
-/**
- 导航栏高度
- */
-#define NAVIGATIONBAR_HEIGHT   (lSCREEN_HEIGHT == 812.0 ? 88 : 64)
 
-/**
- tabbar高度
- */
-#define TABBAR_HEIGHT          (lSCREEN_HEIGHT == 812.0 ? 83 : 49)
-/**
- 状态栏高度
- */
-#define STATUS_BAR_HEIGHT      (lSCREEN_HEIGHT == 812.0 ? 44 : 20)
+// 状态栏高度
+#define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
+// 导航栏高度
+#define NAVIGATIONBAR_HEIGHT (iPhoneX ? 88.f : 64.f)
+/// 导航栏高度（不包括状态栏）
+#define NAVI_BAR_HEIGHT 44.0f
+/// Tab Bar高度
+#define TABBAR_HEIGHT (iPhoneX ? (49.f+34.f) : 49.f)
+
+#define kWidth(R)  (R)*(lSCREEN_WIDTH)/375
+//这里的320我是针对6s为标准适配的,如果需要其他标准可以修改
+#define kHeight(R) kWidth(R)
+//这里的568我是针对6s为标准适配的,如果需要其他标准可以修改
+
+#define kFont(R) [UIFont systemFontOfSize:(R)*(lSCREEN_WIDTH)/375.0]; 
+//这里是6s屏幕字体
 
 //RGB
 #define lRGBACOLOR(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
@@ -41,7 +49,7 @@
 
 /**log*/
 #ifdef DEBUG
-#define CCLog(...) NSLog(@"%s \n %@",__func__,[NSString stringWithFormat:__VA_ARGS__])
+#define CCLog(...) NSLog(@"[viewController]=%s \n [numberOfLine]=%d \n %@",__func__, __LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
 #define CCLog(...)
 #endif
@@ -62,6 +70,14 @@
  导航栏背景色
  */
 #define NAVIGATIONBAR_COLOR    [UIColor colorWithHexString:@"#F4A460"]
+/**
+ 默认颜色
+ */
+#define DEFAULTCOLOR    [UIColor colorWithHexString:@"#F4A460"]
+/**
+ 字体颜色
+ */
+#define DEFAULT_TITLE_COLOR    [UIColor colorWithHexString:@"#CCCCCC"]
 
 #define IMAGE(img) [UIImage imageNamed:img]
 

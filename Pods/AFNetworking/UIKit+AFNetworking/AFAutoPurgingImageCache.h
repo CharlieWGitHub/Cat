@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The `AFImageCache` protocol defines a set of APIs for adding, removing and fetching images from a cache synchronously.
+    AFImageCache的协议 的定义了一组API 来处理图片的添加 、删除、 同步缓存处理
  */
 @protocol AFImageCache <NSObject>
 
@@ -58,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Returns the image in the cache associated with the given identifier.
-
+ 返回缓存中指定的图片（带着identifier的)
  @param identifier The unique identifier for the image in the cache.
 
  @return An image for the matching identifier, or nil.
@@ -120,17 +121,20 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AFAutoPurgingImageCache : NSObject <AFImageRequestCache>
 
 /**
+ 总的容量for cache
  The total memory capacity of the cache in bytes.
  */
 @property (nonatomic, assign) UInt64 memoryCapacity;
 
 /**
  The preferred memory usage after purge in bytes. During a purge, images will be purged until the memory capacity drops below this limit.
+ 限制的缓存大小
  */
 @property (nonatomic, assign) UInt64 preferredMemoryUsageAfterPurge;
 
 /**
  The current total memory usage in bytes of all images stored within the cache.
+ 当前总的缓存字节数
  */
 @property (nonatomic, assign, readonly) UInt64 memoryUsage;
 

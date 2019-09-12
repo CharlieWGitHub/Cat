@@ -81,9 +81,9 @@
 //  点击"立即体验"
 - (void)showRootControllerButtonClick{
     // 再次使用app时, 不再出现欢迎页
-    //    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    //    [userDefault setBool:YES forKey:CatWelcomeIsLaunchDefaultKey];
-    //    [userDefault synchronize];
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        [userDefault setBool:YES forKey:CatWelcomeIsLaunchDefaultKey];
+        [userDefault synchronize];
 
     [UIApplication sharedApplication].keyWindow.rootViewController = self.rootVC;
     CATransition *anim = [CATransition animation];
