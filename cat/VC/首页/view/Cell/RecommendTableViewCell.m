@@ -10,16 +10,17 @@
 
 @interface RecommendTableViewCell ()
 
-@property (nonatomic ,strong) UIImageView * headImg;//头像
-@property (nonatomic ,strong) UIImageView * tagImg;//标签头像上标签
-@property (nonatomic ,strong) UILabel * titleNameLab;//姓名
-@property (nonatomic ,strong) UILabel * tagLab;//姓名后面的标签
-@property (nonatomic ,strong) UILabel * classifyLab;//分类标签
-@property (nonatomic ,strong) UILabel * numberOfBrowse;//浏览次数
+@property (nonatomic ,strong) UIImageView  * headImg;//头像
+@property (nonatomic ,strong) UIImageView  * tagImg;//标签头像上标签
+@property (nonatomic ,strong) UILabel  * titleNameLab;//姓名
+@property (nonatomic ,strong) NSString * titleString;//姓名字符串
+@property (nonatomic ,strong) UILabel  * tagLab;//姓名后面的标签
+@property (nonatomic ,strong) UILabel  * classifyLab;//分类标签
+@property (nonatomic ,strong) UILabel  * numberOfBrowse;//浏览次数
 @property (nonatomic ,strong) UIImageView * recommendImage;//图片
-@property (nonatomic ,strong) UILabel * recommendLab;//内容
-@property (nonatomic ,strong) UILabel * likeLab;//点赞数量
-@property (nonatomic ,strong) UILabel * commentLab;//评论数量
+@property (nonatomic ,strong) UILabel  * recommendLab;//内容
+@property (nonatomic ,strong) UILabel  * likeLab;//点赞数量
+@property (nonatomic ,strong) UILabel  * commentLab;//评论数量
 
 
 @end
@@ -38,12 +39,28 @@
 
 -(void)creatUI{
     
+//    [self.contentView addSubview:self.headImg];
+////    [self.headImg addSubview:self.tagImg];
+//    [self.headImg mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.top.equalTo(self.contentView).offset(15);
+//        make.size.mas_equalTo(CGSizeMake(30, 30));
+//    }];
+    
+    self.titleString = @"hello my good student";
+//    [self.contentView addSubview:self.titleNameLab];
+//    [self.titleNameLab mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(self.headImg);
+//        make.left.equalTo(self.contentView).offset(55);
+//        make.height.mas_equalTo(20);
+//    }];
 }
 
 -(UIImageView *)headImg{
     if (!_headImg) {
-        _headImg = [[UIImageView alloc]init];
-        _headImg.layer.cornerRadius = 10;
+        _headImg = [[UIImageView alloc]initWithImage:IMAGE(@"headImgPlaceHold")];
+        _headImg.layer.cornerRadius = 15;
+        _headImg.layer.borderColor = HEXColor(@"0xFFEBCD").CGColor;
+        _headImg.layer.borderWidth = 1.f;
         _headImg.layer.masksToBounds = YES;
     }
     return _headImg;
@@ -131,6 +148,47 @@
     return _commentLab;
 }
 
+
+
+/**
+ 重写视图方法绘制
+ 
+ @param rect 坐标大小
+ */
+- (void)drawRect:(CGRect)rect {
+    
+    // 屏幕宽
+//    CGFloat fScreenWidth = [[UIScreen mainScreen] bounds].size.width;
+    // 文本属性
+    NSDictionary *dicAttribute;
+    
+    // 标题
+    dicAttribute = @{NSFontAttributeName: [UIFont systemFontOfSize:14], NSForegroundColorAttributeName: [UIColor colorWithWhite:0.2 alpha:1.0]};
+//    [self.titleNameLab drawInRect:CGRectMake(10, 10, fScreenWidth - 20, 20) withAttributes:dicAttribute];
+    [self.titleString drawInRect:CGRectMake(45, 15, 100, 30) withAttributes:dicAttribute];
+    
+    UIImage * imageView = [UIImage imageNamed:@"headImgPlaceHold"];
+    [imageView drawInRect:CGRectMake(15, 15, 30, 30)];
+    
+    
+ /*
+    // 图片组
+    // 图片宽
+    CGFloat fImageWidth = (fScreenWidth - 40)/3;
+    for (int i = 0; i < 3; i++) {
+        
+        UIImage *imgPicture = [UIImage imageNamed:self.arrImage[i]];
+        [imgPicture drawInRect:CGRectMake(10 + i * (fImageWidth + 10), 40, fImageWidth, fImageWidth * 3/4)];
+    }
+    
+    // 日期
+    dicAttribute = @{NSFontAttributeName: [UIFont systemFontOfSize:13], NSForegroundColorAttributeName: [UIColor colorWithWhite:0.6 alpha:1.0]};
+    [self.strDate drawInRect:CGRectMake(10, 45 + fImageWidth * 3/4, fScreenWidth - 20, 20) withAttributes:dicAttribute];
+    */
+    // 分割线
+//    [[UIColor colorWithWhite:0.9 alpha:1.0] set];
+//    UIRectFill(CGRectMake(0, 65 + fImageWidth * 3/4, fScreenWidth, 5));
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

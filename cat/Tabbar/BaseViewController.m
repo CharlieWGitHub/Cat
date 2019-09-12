@@ -72,7 +72,7 @@
 -(UIButton *)backButton{
     if (!_backButton) {
         _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _backButton.frame = CGRectMake(20, 0, 50, 40);
+        _backButton.frame = CGRectMake(20, 0, 60, 40);
         [_backButton setImage:[UIImage imageNamed:@"icon_back_arrow"] forState:UIControlStateNormal];
         _backButton.titleLabel.font = [UIFont systemFontOfSize:17];
         [_backButton setContentEdgeInsets:UIEdgeInsetsMake(0, -40, 0, 0)];

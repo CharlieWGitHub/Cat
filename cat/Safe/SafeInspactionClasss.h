@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,7 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**普通字符串转hex */
 + (NSString *)hexStringFromString:(NSString *)string;
 
-
 /**
  十进制转换十六进制
 
@@ -50,6 +50,30 @@ NS_ASSUME_NONNULL_BEGIN
  @return 十六进制Hex
  */
 + (NSString *)getHexByDecimal:(NSInteger)decimal;
+
+
+
+/**
+ 计算宽度
+
+ @param string 需要计算的字符串
+ @param height 固定高度
+ @param font 字符串的大小
+ @return 返回字符串的宽度
+ */
++ (CGFloat)widthOfString:(NSString *)string height:(CGFloat)height font:(UIFont *)font;
+
+/**
+ 计算高度
+
+ @param string 需要计算的字符串
+ @param width 固定宽度
+ @param font 字符串的大小
+ @return 返回值
+ */
++ (CGFloat)heightOfString:(NSString *)string width:(CGFloat)width font:(UIFont *)font;
+
+
 
 @end
 

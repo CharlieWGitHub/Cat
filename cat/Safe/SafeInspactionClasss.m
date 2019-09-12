@@ -303,4 +303,23 @@
 }
 
 
+
++ (CGFloat)widthOfString:(NSString *)string height:(CGFloat)height font:(UIFont *)font{
+    
+    NSDictionary *attributes = @{NSFontAttributeName : font};
+    //字体属性，设置字体的font
+    CGSize maxSize = CGSizeMake(MAXFLOAT, height);
+    //设置字符串的宽高  MAXFLOAT为最大宽度极限值  JPSlideBarHeight为固定高度
+    CGSize size = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size; return ceil(size.width);//此方法结合  预编译字符串  字体font  字符串宽高  三个参数计算文本  返回字符串宽度
+    return size.width;
+    
+}
++(CGFloat)heightOfString:(NSString *)string width:(CGFloat)width font:(UIFont *)font{
+    NSDictionary *attributes = @{NSFontAttributeName : font};
+    //字体属性，设置字体的font
+    CGSize maxSize = CGSizeMake(width,MAXFLOAT);
+    //设置字符串的宽高  MAXFLOAT为最大宽度极限值  JPSlideBarHeight为固定高度
+    CGSize size = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size; return ceil(size.width);//此方法结合  预编译字符串  字体font  字符串宽高  三个参数计算文本  返回字符串
+    return size.height;
+}
 @end

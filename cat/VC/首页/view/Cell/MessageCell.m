@@ -83,15 +83,15 @@
     
     [self.arrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.bottomView).offset(kWidth(-10));
-        make.centerY.equalTo(self.bottomView.mas_centerY);
-        
+//        make.centerY.equalTo(self.bottomView.mas_centerY);
+        make.top.equalTo(self.bottomView).offset(10);
         make.width.mas_equalTo(kWidth(10));
         make.height.mas_equalTo(kWidth(20));
     }];
     
     [self.cycleScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.cycleTitleLable).offset(kWidth(40));
-        make.center.mas_equalTo(self.bottomView.center);
+        make.top.equalTo(self.bottomView);
         make.right.equalTo(self.arrowImage.mas_left).offset(kWidth(-15));
         make.height.mas_equalTo(kWidth(40));
     }];
@@ -104,7 +104,7 @@
 }
 #pragma mark private method
 - (void)buttonClick:(UIButton*)button{
-    
+    CCLog(@"点·点·点");
 }
 //下面的view
 - (UIView *)bottomView{
