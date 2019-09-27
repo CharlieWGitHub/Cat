@@ -14,6 +14,12 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - BGFMDB (2.0.13):
+    - BGFMDB/BG (= 2.0.13)
+    - BGFMDB/FMDB (= 2.0.13)
+  - BGFMDB/BG (2.0.13):
+    - BGFMDB/FMDB
+  - BGFMDB/FMDB (2.0.13)
   - Masonry (1.1.0)
   - MJExtension (3.0.17)
   - MJRefresh (3.2.0)
@@ -27,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - BGFMDB (~> 2.0.9)
   - Masonry
   - MJExtension
   - MJRefresh
@@ -38,6 +45,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - BGFMDB
     - Masonry
     - MJExtension
     - MJRefresh
@@ -48,6 +56,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  BGFMDB: 48e6823027232402a678acc7f71484b1fc9171d0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
@@ -56,6 +65,6 @@ SPEC CHECKSUMS:
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: fc9f05fa3808e54f0a09dc33af76311444e8cbe1
+PODFILE CHECKSUM: e212239d62c2eabb3636ff70d217460d0c498af2
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.7.5

@@ -303,23 +303,65 @@
 }
 
 
++ (CGFloat)widthOfString:(NSString *)string height:(CGFloat)height font:(UIFont *)font
+{
 
-+ (CGFloat)widthOfString:(NSString *)string height:(CGFloat)height font:(UIFont *)font{
-    
     NSDictionary *attributes = @{NSFontAttributeName : font};
     //字体属性，设置字体的font
     CGSize maxSize = CGSizeMake(MAXFLOAT, height);
     //设置字符串的宽高  MAXFLOAT为最大宽度极限值  JPSlideBarHeight为固定高度
-    CGSize size = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size; return ceil(size.width);//此方法结合  预编译字符串  字体font  字符串宽高  三个参数计算文本  返回字符串宽度
+    CGSize size = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    return ceil(size.width); //此方法结合  预编译字符串  字体font  字符串宽高  三个参数计算文本  返回字符串宽度
     return size.width;
-    
 }
-+(CGFloat)heightOfString:(NSString *)string width:(CGFloat)width font:(UIFont *)font{
++ (CGFloat)heightOfString:(NSString *)string width:(CGFloat)width font:(UIFont *)font
+{
     NSDictionary *attributes = @{NSFontAttributeName : font};
     //字体属性，设置字体的font
-    CGSize maxSize = CGSizeMake(width,MAXFLOAT);
+    CGSize maxSize = CGSizeMake(width, MAXFLOAT);
     //设置字符串的宽高  MAXFLOAT为最大宽度极限值  JPSlideBarHeight为固定高度
-    CGSize size = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size; return ceil(size.width);//此方法结合  预编译字符串  字体font  字符串宽高  三个参数计算文本  返回字符串
+    CGSize size = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    return ceil(size.width); //此方法结合  预编译字符串  字体font  字符串宽高  三个参数计算文本  返回字符串
     return size.height;
 }
+
+// 获取当前时间
++ (NSString *)getCurrentDate
+{
+    NSDate *currentDate = [NSDate date]; // 获取当前时间，日期
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; // 创建一个时间格式化对象
+    [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"]; // 设定时间格式,这里可以设置成自己需要的格式
+    NSString *dateString = [dateFormatter stringFromDate:currentDate]; // 将时间转化成字符串
+    return dateString;
+}
+// 获取当前时间戳
++ (NSString *)getCurrentTimestamp
+{
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0]; // 获取当前时间0秒后的时间
+    NSTimeInterval time = [date timeIntervalSince1970]; // *1000 是精确到毫秒(13位),不乘就是精确到秒(10位)
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", time];
+    return timeString;
+}
+
+// 时间戳转时间,时间戳为13位是精确到毫秒的，10位精确到秒
++ (NSString *)getDateStringWithTimestamp:(NSString *)str
+{
+    NSTimeInterval time = [str doubleValue]; // 传入的时间戳str如果是精确到毫秒的记得要/1000
+    NSDate *detailDate = [NSDate dateWithTimeIntervalSince1970:time];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; // 实例化一个NSDateFormatter对象
+    // 设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSString *currentDateStr = [dateFormatter stringFromDate:detailDate];
+    return currentDateStr;
+}
+// 字符串转时间戳 如：2017-4-10 17:15:10
++ (NSString *)getTimestampWithDate:(NSString *)str
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init]; // 创建一个时间格式化对象
+    [dateFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"]; // 设定时间的格式
+    NSDate *tempDate = [dateFormatter dateFromString:str]; // 将字符串转换为时间对象
+    NSString *timeStr = [NSString stringWithFormat:@"%ld", (long)[tempDate timeIntervalSince1970]]; // 字符串转成时间戳,精确到毫秒*1000
+    return timeStr;
+}
+
 @end

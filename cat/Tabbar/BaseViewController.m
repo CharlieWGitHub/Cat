@@ -14,7 +14,8 @@
 
 @implementation BaseViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     //ViewController的背景颜色，如果整个App页面背景颜色比较统一，建议在这里设置
     self.view.backgroundColor = [UIColor whiteColor];
@@ -25,51 +26,63 @@
     if (@available(iOS 11.0, *)) {
         //scrollerView在导航栏透明时不下压
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-    }else{
+    }
+    else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+
+    [self setBackButton];
 }
 
--(void)setupNavigationItem{
+- (void)setupNavigationItem
+{
     //导航栏背景
-    UIImage * image =  [[UIImage imageNamed:@"img_navigationbar_bg"]
-                        resizableImageWithCapInsets:UIEdgeInsetsMake(-1, 0, 0, 0) resizingMode:UIImageResizingModeStretch];
+    UIImage *image = [[UIImage imageNamed:@"img_navigationbar_bg"]
+        resizableImageWithCapInsets:UIEdgeInsetsMake(-1, 0, 0, 0)
+                       resizingMode:UIImageResizingModeStretch];
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
 }
 
--(void)setBackButton{
+- (void)setBackButton
+{
     //设置返回按钮
-    UIBarButtonItem * backBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
+    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.backButton];
     self.navigationItem.leftBarButtonItem = backBarButton;
 }
 
--(void)setRightButton{
+- (void)setRightButton
+{
     //设置右按钮（图片）
-    UIBarButtonItem * rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.rightButton];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.rightButton];
     self.navigationItem.rightBarButtonItem = rightBarButton;
 }
 
--(void)setRightTextButton{
+- (void)setRightTextButton
+{
     //设置右按钮（文字）
-    UIBarButtonItem * rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.rightTextButton];
-    self.navigationItem.rightBarButtonItems = @[[self getNavigationSpacerWithSpacer:0],rightBarButton];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.rightTextButton];
+    self.navigationItem.rightBarButtonItems = @[ [self getNavigationSpacerWithSpacer:0], rightBarButton ];
 }
 
--(void)setNavigationTitleLabel{
+- (void)setNavigationTitleLabel
+{
     //设置标题
     self.navigationItem.titleView = self.navigationTitleLabel;
 }
 
--(UIBarButtonItem *)getNavigationSpacerWithSpacer:(CGFloat)spacer{
+- (UIBarButtonItem *)getNavigationSpacerWithSpacer:(CGFloat)spacer
+{
     //设置导航栏左右按钮的偏移距离
     UIBarButtonItem *navgationButtonSpacer = [[UIBarButtonItem alloc]
-                                              initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                              target:nil action:nil];
+        initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                             target:nil
+                             action:nil];
     navgationButtonSpacer.width = spacer;
     return navgationButtonSpacer;
 }
 
--(UIButton *)backButton{
+- (UIButton *)backButton
+{
     if (!_backButton) {
         _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _backButton.frame = CGRectMake(20, 0, 60, 40);
@@ -81,7 +94,8 @@
     return _backButton;
 }
 
--(UIButton *)rightButton{
+- (UIButton *)rightButton
+{
     if (!_rightButton) {
         _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _rightButton.frame = CGRectMake(0, 0, 40, 40);
@@ -90,7 +104,8 @@
     return _rightButton;
 }
 
--(UIButton *)rightTextButton{
+- (UIButton *)rightTextButton
+{
     if (!_rightTextButton) {
         _rightTextButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _rightTextButton.frame = CGRectMake(0, 0, 60, 40);
@@ -100,7 +115,8 @@
     return _rightTextButton;
 }
 
--(UILabel *)navigationTitleLabel{
+- (UILabel *)navigationTitleLabel
+{
     if (!_navigationTitleLabel) {
         _navigationTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, lSCREEN_WIDTH - 150, 30)];
         _navigationTitleLabel.font = [UIFont systemFontOfSize:17];
@@ -112,16 +128,17 @@
 
 
 #pragma mark - click 导航栏按钮点击方法，右按钮点击方法都需要子类来实现
--(void)navBackClick{
+- (void)navBackClick
+{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)navRightClick{
-    
+- (void)navRightClick
+{
 }
 
--(void)navRightTextClick{
-    
+- (void)navRightTextClick
+{
 }
 /*
 #pragma mark - Navigation

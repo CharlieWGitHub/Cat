@@ -18,19 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Sg-bb-aor">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="art" translatesAutoresizingMaskIntoConstraints="NO" id="6Sg-bb-aor">
                                 <rect key="frame" x="16" y="31" width="58" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="7Uo-ri-nrh"/>
                                     <constraint firstAttribute="width" constant="58" id="XB0-b2-rTh"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hB-in-tqV">
-                                <rect key="frame" x="100" y="31" width="204" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="n4F-w2-TPH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hB-in-tqV">
+                                <rect key="frame" x="100" y="31" width="204" height="46.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -51,6 +48,7 @@
                             <constraint firstItem="6Sg-bb-aor" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="8.5" id="JDB-UR-1em"/>
                             <constraint firstItem="6hB-in-tqV" firstAttribute="leading" secondItem="6Sg-bb-aor" secondAttribute="trailing" constant="26" id="NhW-4O-Yt7"/>
                             <constraint firstItem="6Sg-bb-aor" firstAttribute="leading" secondItem="2BE-c3-nQJ" secondAttribute="leading" constant="16" id="T02-J6-Q76"/>
+                            <constraint firstItem="2BE-c3-nQJ" firstAttribute="bottom" secondItem="6hB-in-tqV" secondAttribute="bottom" constant="8.5" id="byO-8d-TlA"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" constant="2" id="fTP-3a-GXT"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="les-2L-dkM"/>
                             <constraint firstItem="6hB-in-tqV" firstAttribute="leading" secondItem="6Sg-bb-aor" secondAttribute="trailing" constant="26" id="qdj-bz-ZeH"/>
@@ -72,4 +70,7 @@
             <point key="canvasLocation" x="-300" y="-95.089285714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="art" width="32" height="32"/>
+    </resources>
 </document>

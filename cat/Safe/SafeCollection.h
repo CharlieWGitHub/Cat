@@ -136,6 +136,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)checkOutNullString:(NSString *)string;
 
+
+/**
+ 判断是否是空字符串
+
+ @param normalStr 需要判断的字符串
+ @return 是否是空
+ */
++ (BOOL)isNullString:(NSString *)normalStr;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

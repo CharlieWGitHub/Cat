@@ -20,17 +20,18 @@
 
 @implementation NotificationViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
+
     // Do any required interface initialization here.
 }
 
-- (void)didReceiveNotification:(UNNotification *)notification {
+- (void)didReceiveNotification:(UNNotification *)notification
+{
     self.label.text = notification.request.content.body;
-    self.img.image = [UIImage imageNamed:@"cat_mid"];
+    self.img.image = [UIImage imageNamed:@"balloons"];
     self.contentLab.text = notification.request.content.subtitle;
-    
 }
 
 

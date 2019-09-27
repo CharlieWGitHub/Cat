@@ -13,7 +13,9 @@ target 'cat' do
 
   pod 'SDWebImage'
   pod 'SDCycleScrollView','~> 1.64'
-
+  pod 'BGFMDB', '~> 2.0.9'
+  
+  
   # Pods for cat
 pod 'OpenSSL-for-iOS', '~> 1.0.2.d.1'
 

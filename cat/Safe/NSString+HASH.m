@@ -8,7 +8,7 @@
 // ↓加盐 - 盐泄露了 - 也就不安全了
 // ↓动态盐
 // HMAC 用一个秘钥 - 两次散列 ；实际开发 秘钥来自服务器：[string  hmacMD5StringWithKey：key];
-//时间戳
+// 时间戳
 
 #import "NSString+HASH.h"
 #import <CommonCrypto/CommonCrypto.h>

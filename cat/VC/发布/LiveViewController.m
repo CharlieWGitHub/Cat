@@ -35,7 +35,6 @@
     self.delegate = self; //设置委托
 }
 
-
 - (CGFloat)getFileSize:(NSString *)path
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -57,7 +56,6 @@
     NSURL *sourceURL = [info objectForKey:UIImagePickerControllerMediaURL];
     //NSLog(@"%@",[NSString stringWithFormat:@"%f s", [self getVideoLength:sourceURL]]);
     NSLog(@"=======%@", [NSString stringWithFormat:@"%.2f kb", [self getFileSize:[sourceURL path]]]);
-    
     NSURL *newVideoUrl; //一般.mp4
     NSDateFormatter *formater = [[NSDateFormatter alloc] init]; //用时间给文件全名，以免重复，在测试的时候其实可以判断文件是否存在若存在，则删除，重新生成文件即可
     [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
@@ -66,12 +64,11 @@
     //这个是保存在app自己的沙盒路径里，后面可以选择是否在上传后删除掉。我建议删除掉，免得占空间。
     NSString *fileName = [NSString stringWithFormat:@"output-%@.mp4", [formater stringFromDate:[NSDate date]]];
     NSLog(@"视频名字=%@", fileName);
-    
+   
     NSURL *url = [info objectForKey:UIImagePickerControllerMediaURL];
-    
     NSString *urlStr = [url path];
     if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(urlStr)) {
-        //保存视频到相簿，注意也可以使用ALAssetsLibrary来保存
+    //  保存视频到相簿，注意也可以使用ALAssetsLibrary来保存
         UISaveVideoAtPathToSavedPhotosAlbum(urlStr, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
     }
     [picker dismissViewControllerAnimated:YES completion:nil];

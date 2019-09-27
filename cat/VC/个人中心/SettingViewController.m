@@ -9,6 +9,9 @@
 #import "SettingViewController.h"
 #import "AboutUsViewController.h"
 #import "GestureLockView.h"
+#import "CLoginViewController.h"
+#import "VPNViewController.h"
+
 
 @interface SettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -22,7 +25,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"个人中心";
     
-    self.dataArr = @[@"我的订单",@"我的收藏",@"我的评价",@"消息中心",@"设置"];
+    self.dataArr = @[ @"vpn",@"我的订单",@"我的收藏",@"我的评价",@"消息中心",@"清理缓存",@"设置"];
     
     [self.view addSubview:self.personTable];
     [self.personTable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,6 +52,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     if (indexPath.row==0) {
+        VPNViewController * vpn = [[VPNViewController alloc]init];
+        vpn.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vpn animated:YES];
+    }
+    if (indexPath.row==3) {
         GestureLockView * gestures = [[GestureLockView alloc]init];
         gestures.hidesBottomBarWhenPushed = YES;
         gestures.gestureType = 0;
@@ -58,11 +66,12 @@
         about.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:about animated:YES];
     }
-  
-    
+    else if (indexPath.row ==2){
+        CLoginViewController * login  =[[CLoginViewController alloc]init];
+        login.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:login animated:YES];
+    }
 }
-
-
 
 #pragma mark layz
 -(UITableView *)personTable{

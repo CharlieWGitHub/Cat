@@ -35,7 +35,6 @@
     self.navigationTitleLabel.text = @"设置手势密码";
     [self setNavigationTitleLabel];
     [self setBackButton];
-    
     [self makeNineBox];
 }
 
@@ -188,7 +187,6 @@
 //         重置
             break;
             //删除本地存储的
-            
             
         default:
             break;

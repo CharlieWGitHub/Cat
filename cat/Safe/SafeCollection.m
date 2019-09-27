@@ -35,12 +35,12 @@
     if (![array isKindOfClass:[NSArray class]] || array.count <= index) {
         return nil;
     }
-    
+
     id obj = [array objectAtIndex:index];
     if (![obj isKindOfClass:cls]) {
         return nil;
     }
-    
+
     return obj;
 }
 
@@ -71,21 +71,21 @@
     if (![dictionary isKindOfClass:[NSDictionary class]]) {
         return nil;
     }
-    
+
     id obj = [dictionary objectForKey:key];
-    
+
     if (![obj isKindOfClass:cls]) {
         if ([obj isKindOfClass:[NSNull class]]) {
             return nil;
         }
-        
+
         //特殊处理NSString类型数据
         if ([cls isSubclassOfClass:[NSString class]]) {
             return obj;
         }
         return nil;
     }
-    
+
     return obj;
 }
 
@@ -94,9 +94,22 @@
     if ([string isKindOfClass:[NSString class]] && string != nil) {
         return string;
     }
-    
     return @"";
 }
 
++ (BOOL)isNullString:(NSString *)normalStr
+{
+    if (normalStr == nil || normalStr == NULL) {
+        return YES;
+    }
+    else if ([normalStr isKindOfClass:[NSNull class]]) {
+        return YES;
+    }
+    else if ([[normalStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
+        return YES;
+    }
+    else
+        return NO;
+}
 
 @end

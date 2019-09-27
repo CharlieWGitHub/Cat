@@ -52,7 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)getHexByDecimal:(NSInteger)decimal;
 
 
-
 /**
  计算宽度
 
@@ -73,6 +72,39 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (CGFloat)heightOfString:(NSString *)string width:(CGFloat)width font:(UIFont *)font;
 
+
+/**
+ 获取当前时间
+
+ @return 当前时间 2019-9-16 13：27：39
+ */
++ (NSString *)getCurrentDate;
+
+
+/**
+ 获取当前时间戳
+
+ @return 当前时间戳 235672356253
+ */
++ (NSString *)getCurrentTimestamp;
+
+
+/**
+ 时间戳转时间,时间戳为13位是精确到毫秒的，10位精确到秒
+
+ @param str 时间戳
+ @return 时间
+ */
++ (NSString *)getDateStringWithTimestamp:(NSString *)str;
+
+
+/**
+ 时间转时间戳
+
+ @param str 字符串转时间戳 如：2017-4-10 17:15:10
+ @return 时间戳
+ */
++ (NSString *)getTimestampWithDate:(NSString *)str;
 
 
 @end
