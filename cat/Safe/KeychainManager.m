@@ -93,7 +93,7 @@
     updataMutableDictionary = nil;
     // 判断是否更新成功
     if (updataStatus == errSecSuccess) {
-        return  YES ;
+        return  YES;
     }
     return NO;
 }

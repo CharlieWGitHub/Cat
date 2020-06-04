@@ -5,6 +5,16 @@
 //  Created by 王成龙 on 2019/8/7.
 //  Copyright © 2019 Charlie. All rights reserved.
 //
+/*
+ QingDao  青岛
+ urban investment 城市投资
+ financial  金融
+ holding  控股
+ Group Co. , Ltd 集团有限公司
+ 
+ QingDaoUrbanInvestmentFinancialHoldingGroup Co. , Ltd
+ 
+ */
 
 #import "AppDelegate.h"
 // 引入 JPush 功能所需头文件
@@ -39,16 +49,16 @@
         self.window.rootViewController = welcomeVC;
     }
     else {
-        NSString *passStr = [KeychainManager keyChainReadData:@"pass"]; //      存在
-        if (passStr.length > 0) {
-            GestureLockView *gesture = [[GestureLockView alloc] init];
-            gesture.gestureType = 1;
-            self.window.rootViewController = gesture;
-        }
-        else {
+//        NSString *passStr = [KeychainManager keyChainReadData:@"pass"]; //      存在
+//        if (passStr.length > 0) {
+//            GestureLockView *gesture = [[GestureLockView alloc] init];
+//            gesture.gestureType = 1;
+//            self.window.rootViewController = gesture;
+//        }
+//        else {
             //      不存在
             self.window.rootViewController = main;
-        }
+//        }
     }
     [self.window makeKeyAndVisible];
 

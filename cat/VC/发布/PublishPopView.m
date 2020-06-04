@@ -9,7 +9,7 @@
 #import "PublishPopView.h"
 #import "TabbarItemButton.h"
 
-static NSInteger const kColumnCount = 3;
+static NSInteger const kColumnCount = 4;
 static NSTimeInterval kAnimationDuration = 0.3;
 
 @interface PublishPopView () <UIScrollViewDelegate>

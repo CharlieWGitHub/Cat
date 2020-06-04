@@ -23,14 +23,34 @@
 
 - (void)cSetSourceType
 {
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+       {
+           CCLog(@"支持相机");
+       }
+       if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+       {
+           CCLog(@"支持图库");
+       }
+       if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+       {
+           CCLog(@"支持相片库");
+       }
+//    来源
     self.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    摄像头
     self.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+/**
+ UIImagePickerControllerSourceTypePhotoLibrary：图库
+ UIImagePickerControllerSourceTypeCamera：相机
+ UIImagePickerControllerSourceTypeSavedPhotosAlbum：相册
+ */
     NSArray *availableMedia = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera]; //Camera所支持的Media格式都有哪些,共有两个分别是@"public.image",@"public.movie"
     self.mediaTypes = [NSArray arrayWithObject:availableMedia[1]]; //设置媒体类型为public.movie
     //   视频质量
     self.videoQuality = UIImagePickerControllerQualityTypeHigh;
     //   闪光灯
     self.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+    //   时长
     self.videoMaximumDuration = 60.0f;
     self.delegate = self; //设置委托
 }

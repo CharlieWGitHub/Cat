@@ -62,8 +62,8 @@
         return;
     }
     //  mark 发布
-    NSArray *imageNames = @[ @"publish_0", @"publish_1", @"publish_2", @"publish_3", @"publish_4", @"publish_5" ];
-    NSArray *titles = @[ @"文字", @"图片", @"视频", @"语言", @"投票", @"签到" ];
+    NSArray *imageNames = @[ @"publish_0", @"publish_1", @"publish_2", @"publish_3", @"publish_4", @"publish_5",@"publish_0", @"publish_1", @"publish_2", @"publish_3", @"publish_4", @"publish_5" ];
+    NSArray *titles = @[ @"文字", @"图片", @"视频", @"语言", @"投票", @"签到",@"文字", @"图片", @"视频", @"语言", @"投票", @"签到" ];
     __weak typeof(self) weakSelf = self;
     [PublishPopView showWithImages:imageNames
                             titles:titles
