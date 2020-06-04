@@ -10,6 +10,8 @@
 #import <NetworkExtension/NetworkExtension.h>
 #import "VPNManagerModel.h"
 #import "NSMutableDictionary+SafeSetRemove.h"
+NSString * const UESRNAME = @"用户名";
+NSString * const PASSWORD = @"密码";
 
 @interface VPNManager ()
 
@@ -48,13 +50,14 @@
 {
     if (self.vpnManager.connection.status == NEVPNStatusDisconnected) {
         NSError *error;
-        [self.vpnManager.connection startVPNTunnelAndReturnError:&error];
+//        [self.vpnManager.connection startVPNTunnelAndReturnError:&error];
+        [self.vpnManager.connection startVPNTunnelWithOptions:@{@"username":UESRNAME,@"password":PASSWORD} andReturnError:(&error)];
 
         if (error != 0) {
             const char *errorInfo = [NSString stringWithFormat:@"%@", error].UTF8String;
+            
             CCLog(@"XDXVPNManager Start VPN Failed - %s !", errorInfo);
-        }
-        else {
+        }else {
             CCLog(@"XDXVPNManager Start VPN Success !");
             return YES;
         }

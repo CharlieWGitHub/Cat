@@ -17,6 +17,7 @@
 
 @implementation VPNViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
   
@@ -24,6 +25,15 @@
     [self setNavigationTitleLabel];
     
     VPNManagerModel * model = [[VPNManagerModel alloc]init];
+/**
+ BundleId:
+ serverAddress:
+ serverPort:端口号
+ mtu:最大传输单元字节数
+ ip:ip地址
+ subnet:子网掩码
+ dns:
+ */
     [model configureInfoWithTunnelBundleId:@"com.duotePet.cat.catVpn"
                              serverAddress:@"cat"
                                 serverPort:@"5434"
@@ -44,8 +54,9 @@
 - (void)creatUI{
     UIButton * one = [UIButton buttonWithType:UIButtonTypeCustom];
     [one setTitle:@"开始" forState:UIControlStateNormal];
-    [one setTitleColor:HEXColor(@"0xff0") forState:UIControlStateNormal];
+    [one setTitleColor:lRGBACOLOR(153, 0, 77, 1) forState:UIControlStateNormal];
     [one addTarget:self action:@selector(openVpn) forControlEvents:UIControlEventTouchUpInside];
+    [one setBackgroundColor:lRGBACOLOR(210, 96, 145, 1)];
     [self.view addSubview:one];
     
     [one mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -55,9 +66,10 @@
     }];
     
     UIButton * two = [UIButton buttonWithType:UIButtonTypeCustom];
-    [two setTitle:@"开始" forState:UIControlStateNormal];
-    [two setTitleColor:HEXColor(@"0xff0") forState:UIControlStateNormal];
-    [two addTarget:self action:@selector(openVpn) forControlEvents:UIControlEventTouchUpInside];
+    [two setTitle:@"关闭" forState:UIControlStateNormal];
+    [two setTitleColor:lRGBACOLOR(111, 249, 193, 1) forState:UIControlStateNormal];
+    [two addTarget:self action:@selector(closeVpn) forControlEvents:UIControlEventTouchUpInside];
+    [two setBackgroundColor:lRGBACOLOR(255, 176, 97, 1)];
     [self.view addSubview:two];
     
     [two mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,53 +78,51 @@
         make.size.mas_equalTo(CGSizeMake(100, 60));
     }];
 }
-
+//开始
 - (void)openVpn{
     [self.vpnManager startVPN];
 }
-
+//关闭
 - (void)closeVpn{
     [self.vpnManager stopVPN];
 }
 
 #pragma mark - Notification
 - (void)vpnDidChange:(NSNotification *)notification {
-    OSStatus status = self.vpnManager.vpnManager.connection.status;
-    
+   NEVPNStatus status = self.vpnManager.vpnManager.connection.status;
     switch (status) {
         case NEVPNStatusConnecting:
         {
             CCLog(@"Connecting...");
-//            [self.connectBtn setTitle:@"Disconnect" forState:UIControlStateNormal];
+            [SVProgressHUD showSuccessWithStatus:@"正在连接。。。"];
         }
             break;
         case NEVPNStatusConnected:
         {
             CCLog(@"Connected...");
-//            [self.connectBtn setTitle:@"Disconnect" forState:UIControlStateNormal];
-            
+            [SVProgressHUD showSuccessWithStatus:@"已经连接。。。"];
         }
             break;
         case NEVPNStatusDisconnecting:
         {
             CCLog(@"Disconnecting...");
-            
+            [SVProgressHUD showSuccessWithStatus:@"连接中断。。。"];
         }
             break;
         case NEVPNStatusDisconnected:
         {
             CCLog(@"Disconnected...");
-//            [self.connectBtn setTitle:@"Connect" forState:UIControlStateNormal];
-            
+            [SVProgressHUD showSuccessWithStatus:@"连接已中断。。。"];
         }
             break;
         case NEVPNStatusInvalid:
-            
             CCLog(@"Invliad");
-            //             [self.connectBtn setTitle:@"Connect" forState:UIControlStateNormal];
+            [SVProgressHUD showSuccessWithStatus:@"无效。。。"];
+
             break;
         case NEVPNStatusReasserting:
             CCLog(@"Reasserting...");
+            [SVProgressHUD showSuccessWithStatus:@"恢复连接。。。"];
             break;
     }
 }

@@ -14,5 +14,9 @@
 	<array>
 		<string>allow-vpn</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.duotePet.cat</string>
+	</array>
 </dict>
 </plist>

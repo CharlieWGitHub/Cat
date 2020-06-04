@@ -11,6 +11,7 @@
 #import "RecommendViewController.h"
 #import "HotViewController.h"
 #import "FollowViewController.h"
+#import "KeyChainStoreManager.h"
 
 @interface HomeViewController ()<ItemSelectDelegate,UIScrollViewDelegate>
 @property (nonatomic,strong)ItemSelectView * selectView;
@@ -29,6 +30,7 @@
     self.navigationItem.title = @"首页";
     [self creatUI];
     
+    CCLog(@"【uuid】%@",[KeyChainStoreManager getUUIDByKeyChain]);
 }
 
 #pragma mark UI
@@ -47,34 +49,45 @@
     }];
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
 //    double index = scrollView.contentOffset.x/lSCREEN_WIDTH;
 //    CCLog(@"滚动==%f",index);
-//    [self.selectView updateItemSelectedIndex:index];
+//    [UIView animateWithDuration:0.4 animations:^{
+//        [self.selectView updateItemSelectedIndex:index];
+//    }];
 //    [self sliderAnimationWithTag:(int)(index_+0.5)];
-}
+//}
 
 //开始拖拽
-- (void)scrollViewWillBeginDragging:(UIScrollView*)scrollView{
+//- (void)scrollViewWillBeginDragging:(UIScrollView*)scrollView{
     
-}
+//}
 //停止拖拽
-- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate{
-    double index = scrollView.contentOffset.x/lSCREEN_WIDTH;
-    if (index<0.5) {
-        [self.selectView updateItemSelectedIndex:0];
-    }else if (index<1.5 && index > 0.5){
-        [self.selectView updateItemSelectedIndex:1];
-    }else if (index>1.5){
-        [self.selectView updateItemSelectedIndex:2];
-    }
-}
+//- (void)scrollViewDidEndDragging:(UIScrollView*)scrollView willDecelerate:(BOOL)decelerate{
+//    double index = scrollView.contentOffset.x/lSCREEN_WIDTH;
+//
+//    if (index<0.5) {
+//        [self.selectView updateItemSelectedIndex:0];
+//    }else if (index<1.5 && index > 0.5){
+//        [self.selectView updateItemSelectedIndex:1];
+//    }else if (index>1.5){
+//        [self.selectView updateItemSelectedIndex:2];
+//    }
+//}
 // scrollView 开始减速（以下两个方法注意与以上两个方法加以区别）
 -(void)scrollViewWillBeginDecelerating:(UIScrollView*)scrollView{
+    
 }
 // scrollview 减速停止
 - (void)scrollViewDidEndDecelerating:(UIScrollView*)scrollView{
-
+    double index = scrollView.contentOffset.x/lSCREEN_WIDTH;
+       if (index<0.5) {
+           [self.selectView updateItemSelectedIndex:0];
+       }else if (index<1.5 && index > 0.5){
+           [self.selectView updateItemSelectedIndex:1];
+       }else if (index>1.5){
+           [self.selectView updateItemSelectedIndex:2];
+       }
 }
 #pragma mark private
 
